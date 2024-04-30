@@ -9,14 +9,41 @@ public class App {
                 Scanner sc = new Scanner(System.in);
 
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                int num1 = sc.nextInt();
+                int a = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                int num2 = sc.nextInt();
-
+                int b = sc.nextInt();
                 System.out.print("사칙연산 기호를 입력하세요: "); // +, -, *, /
-                char operator = sc.next().charAt(0);
-                /* charAt(idx) : charAt 메서드는 매개변수로 char 타입으로 반환하고자 하는 문자열의 위치를 받는다*/
+                String c = sc.next();
 
-                System.out.println("operator = " + operator);
+
+                int result = 0;
+                switch (c) {
+                    case "+": {
+                        result = a+b;
+                        System.out.println("결과= " + result);
+                        break;
+                    }
+                    case "-": {
+                        result = a-b;
+                        System.out.println("결과 = " + result);
+
+                        break;
+                    }
+                    case "*": {
+                        result = a*b;
+                        System.out.println("결과 = " + result);
+
+                        break;
+                    }
+                    case "/": {
+                        result = a/b;
+                        System.out.println("결과 = " + result);
+                        break;
+                    }
+
+
+                }
+
+
     }
 }

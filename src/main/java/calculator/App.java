@@ -10,74 +10,41 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.add(1);
-        linkedList.add(2);
-        linkedList.add(3);
-        linkedList.add(4);
-        linkedList.add(5);
-        linkedList.add(6);
-        linkedList.add(7);
-        linkedList.add(8);
-        linkedList.add(9);
-        linkedList.add(10);
+
 
         System.out.print("첫 번째 숫자를 입력하세요: ");
-        int a = sc.nextInt();
+        int num1 = sc.nextInt();
         System.out.print("두 번째 숫자를 입력하세요: ");
-        int b = sc.nextInt();
-        System.out.print("사칙연산 기호를 입력하세요: "); // +, -, *, /
-        String c = sc.next();
+        int num2 = sc.nextInt();
 
-
+        System.out.println("사칙연산 기호를 입력하세요: "); // +, -, *, /
+        char operator = sc.next().charAt(0);
 
         int result = 0;
-        while (true) {
-            switch (c) {
-                case "+": {
-                    result = a + b;
-                    System.out.println("결과= " + result);
-                    break;
-                }
-                case "-": {
-                    result = a - b;
-                    System.out.println("결과 = " + result);
 
-                    break;
-                }
-                case "*": {
-                    result = a * b;
-                    System.out.println("결과 = " + result);
-
-                    break;
-                }
-                case "/": {
-                    result = a / b;
-                    System.out.println("결과 = " + result);
-                    break;
-                }
-
-
-            }
-            System.out.println(linkedList.get(1));
-            System.out.println(linkedList.get(2));
-            System.out.println(linkedList.get(3));
-            System.out.println(linkedList.get(4));
-            System.out.println(linkedList.get(5));
-            System.out.println(linkedList.get(6));
-            System.out.println(linkedList.get(7));
-            System.out.println(linkedList.get(8));
-            System.out.println(linkedList.get(9));
-            System.out.println(linkedList.get(10));
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) ");
-            Scanner scan = null;
-            String quite = scan.nextLine();
-            if (quite.equals("exit")) {
-                System.out.println("============== 계산기 종료 ==============");
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
                 break;
-            }
-
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("올바른 선택이 아닙니다.");
+                break;
 
         }
+        System.out.println("결과 : " + result);
     }
 }

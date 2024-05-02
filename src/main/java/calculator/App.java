@@ -12,6 +12,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
 
+    do {
         System.out.print("첫 번째 숫자를 입력하세요: ");
         int num1 = sc.nextInt();
         System.out.print("두 번째 숫자를 입력하세요: ");
@@ -46,5 +47,8 @@ public class App {
 
         }
         System.out.println("결과 : " + result);
+
+        System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+        } while (!sc.next().equals("exit"));
     }
 }

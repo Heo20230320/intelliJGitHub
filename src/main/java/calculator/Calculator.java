@@ -53,4 +53,10 @@ public class Calculator {
     public void removeResult(int index) {
         this.results.remove(index);
     }
+
+    public void inquiryResults() {
+        for (Integer result : results) {
+            System.out.println("연산결과 = " + result);
+        }
+    }
 }

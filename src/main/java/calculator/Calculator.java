@@ -6,10 +6,15 @@ import java.util.List;
 
 public class Calculator {
 
+    private static final double PI = 3.14;
+
     private List<Integer> results;
 
-    public Calculator(List<Integer> results) {
+    private List<Double> circleResults;
+
+    public Calculator(List<Integer> results, List<Double> circleResults) {
         this.results = results;
+        this.circleResults = circleResults;
     }
 
     public int calculate(int num1, int num2, char operator) {
@@ -42,8 +47,24 @@ public class Calculator {
 
 
         }
+
+    /**
+     * 원의 넓이를 구하는 메서드
+     * @param radius : 원의 반지름
+     * @return 원의 넓이
+     */
+
+    public double calculateCircleArea(int radius) {
+
+            return PI * radius * radius;
+        }
+
     public List<Integer> getResults() {
         return results;
+    }
+
+    public List<Double> getCircleResults() {
+        return circleResults;
     }
 
 
@@ -51,6 +72,9 @@ public class Calculator {
         this.results = results;
     }
 
+    public void setCircleResults(List<Double> circleResults) {
+        this.circleResults = circleResults;
+    }
     public void removeResult(int index) {
         this.results.remove(index);
     }
@@ -58,6 +82,14 @@ public class Calculator {
     public void inquiryResults() {
         for (Integer result : results) {
             System.out.println("연산결과 = " + result);
+        }
+
+   
+    }
+
+    public void inquiryCircleResults() {
+        for (Double circleResult : circleResults) {
+            System.out.println("원의 넓이 = " + circleResult);
         }
     }
 }

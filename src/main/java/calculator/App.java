@@ -40,6 +40,14 @@ public class App {
             if (Objects.equals(sc.next(), "inquiry")) {
                 arithmeticCalculator.inquiryResults();
             }
+
+            System.out.println("저장된 연산결과 중 입력한 값보다 큰 값들을 조회하시겠습니까? (lambda 입력 시 조회)");
+            if (Objects.equals(sc.next(), "lambda")) {
+                System.out.println("기준 값을 입력하세요: ");
+                double num = sc.nextDouble();
+                arithmeticCalculator.printResultGreaterThan(num);
+            }
+
         } else {
             System.out.println("원의 반지름을 입력하세요: ");
             int radius = sc.nextInt();

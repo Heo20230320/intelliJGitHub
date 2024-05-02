@@ -2,24 +2,29 @@ package calculator;
 
 import java.util.List;
 
-public class ArithmeticCalculator extends Calculator{
+public class ArithmeticCalculator<T extends Number> extends Calculator{
 
-    public ArithmeticCalculator(List<Double> results) {
+    public final Class<T> type;
+
+    public ArithmeticCalculator(List<Double> results, Class<T> type) {
         super(results);
-     }
+        this.type = type;
+    }
 
-    public double calculate(int num1, int num2, char operator) {
+
+
+    public T calculate(T num1, T num2, char operator) {
         return operatorFactory(operator).operate(num1, num2);
     }
 
-    private Operator operatorFactory(char operator) {
+    private Operator<T> operatorFactory(char operator) {
         OperatorType operatorType = OperatorType.fromOperator(operator);
         return switch (operatorType) {
-            case ADDITION -> new AddOperator();
-            case SUBSTRACTION -> new SubtractOperator();
-            case MULTIPLICATION -> new MultiplyOperator();
-            case DIVISION -> new DivideOperator();
-            case MODULO -> new ModOperator();
+            case ADDITION -> new AddOperator(type);
+            case SUBSTRACTION -> new SubtractOperator(type);
+            case MULTIPLICATION -> new MultiplyOperator(type);
+            case DIVISION -> new DivideOperator(type);
+            case MODULO -> new ModOperator(type);
         };
 
     }

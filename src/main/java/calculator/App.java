@@ -8,8 +8,8 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int[] results  = new int[10]; // 0, 1, 2, ... 9
-        int index = 0;
+        List<Integer> results = new ArrayList<>();
+
 
 
     do {
@@ -47,18 +47,15 @@ public class App {
 
         }
         System.out.println("결과 : " + result);
+        results.add(result);
 
-        // 9
-        if(index == 10) {
-            for (int i = 0; i < results.length - 1; i++) { // 0 ~ 8
-                results[i] = results[i + 1];
-            }
-            index--;
+        System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+        if(Objects.equals(sc.next(), "remove")) {
+            results.remove(0);
         }
 
-        results[index] = result;
-        index++;
-        System.out.println("Arrays.toString(results) = " + Arrays.toString(results));
+        System.out.println("결과 = " + results);
+
 
         System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
         } while (!sc.next().equals("exit"));

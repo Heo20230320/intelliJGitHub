@@ -1,15 +1,15 @@
 package calculator;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
 
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        int[] results  = new int[10]; // 0, 1, 2, ... 9
+        int index = 0;
 
 
     do {
@@ -47,6 +47,9 @@ public class App {
 
         }
         System.out.println("결과 : " + result);
+        results[index] = result;
+        index++;
+        System.out.println("Arrays.toString(results) = " + Arrays.toString(results));
 
         System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
         } while (!sc.next().equals("exit"));

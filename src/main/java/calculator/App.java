@@ -43,10 +43,19 @@ public class App {
                 break;
             default:
                 System.out.println("올바른 선택이 아닙니다.");
-                break;
+                return;
 
         }
         System.out.println("결과 : " + result);
+
+        // 9
+        if(index == 10) {
+            for (int i = 0; i < results.length - 1; i++) { // 0 ~ 8
+                results[i] = results[i + 1];
+            }
+            index--;
+        }
+
         results[index] = result;
         index++;
         System.out.println("Arrays.toString(results) = " + Arrays.toString(results));
